@@ -74,4 +74,4 @@ function Count() {
 
 Then you can have as many instances of those components they share the same service instance.
 
-![example](./example.gif)
+![example](https://raw.githubusercontent.com/toutpt/use-service/master/example.gif)
