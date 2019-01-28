@@ -1,40 +1,40 @@
 import { useEffect, useState } from 'react';
 
-const factories = {};  // hold a function service
-const services = {};  // hold an instance of a function service
-const notifies = {};  // hold setState of component which use a service
+const factories = new Map();  // hold a function service
+const services = new Map();  // hold an instance of a function service
+const notifies = new Map();  // hold setState of component which use a service
 
 export function useService(id) {
-  const [, setState] = useState(services[id]);
+  const [, setState] = useState(services.get(id));
   useEffect(() => {
     return function cleanup() {
-      // console.log('remove setState of the unmounted component');
-      const index = notifies[id].indexOf(setState);
-      if (index !== -1) {
-        notifies[id].splice(index, 1);
+      console.log('remove setState of the unmounted component');
+      if (notifies.get(id).has(setState)) {
+        notifies.get(id).delete(setState);
       }
     };
   }, []);
-  if (!services[id]) {
-    // this will call every setState to update each components
+  if (!services.get(id)) {
     const notify = () => {
-      notifies[id].forEach(callMe => callMe(services[id]));
+      notifies.get(id).forEach(callMe => callMe(Object.assign({}, services.get(id))));
     };
-    services[id] = new factories[id](notify);
-    notifies[id] = [setState];
-  } else if (notifies[id].indexOf(setState) === -1)  {
-    // console.log('subscribe to service');
-    notifies[id].push(setState);
+    // this will call every setState to update each components
+    const fn = factories.get(id);
+    services.set(id, new fn(notify));
+    notifies.set(id, new Set([setState]));
+  } else if (!notifies.get(id).has(setState))  {
+    console.log('subscribe to service');
+    notifies.get(id).add(setState);
   }
-  return services[id];
+  return services.get(id);
 }
 
 export function registerService(key, value) {
-  if (factories[key] === value) {
+  if (factories.get(key) === value) {
     throw new Error(`The service ${key} is already registred`);
-  } else if (factories[key]) {
+  } else if (factories.get(key)) {
     throw new Error(`A service is already registred under the key ${key}`);
   } else {
-    factories[key] = value;
+    factories.set(key, value);
   }
 }

@@ -29,8 +29,8 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
-    "react": "16.7.0-alpha.0",
-    "react-dom": "16.7.0-alpha.0",
+    "react": "16.8.0",
+    "react-dom": "16.8.0",
     "react-scripts": "2.1.3"
   }
 }

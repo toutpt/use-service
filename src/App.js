@@ -19,7 +19,7 @@ registerService('countService', countService);
 
 function Counter(props) {
   const countService = useService('countService');
-  console.log('MyComponent.render()', props.id);
+  console.log('Counter.render()', props.id);
   
   return (
       <p id={props.id}>Count state value({props.id}): {countService.count}</p>
@@ -28,7 +28,7 @@ function Counter(props) {
 
 function CountController(props) {
   const countService = useService('countService');
-  console.log('MyComponent.render()', props.id);
+  console.log('CountController.render()');
   
   return (
     <div>
