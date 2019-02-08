@@ -1,7 +1,5 @@
 # useService react hook
 
-> ⚠️ Warning: hooks are not part of a stable React release yet, so use this library only for experiments ⚠️
-
 React hook to handle a shared service accross multiple components.
 
 By `service` we point an instance of a user-defined object using the `new` operator.
