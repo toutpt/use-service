@@ -19,7 +19,7 @@ Then in your source code create the following files
 
 ```javascript
 // countService.js file
-import { useService } from 'use-service';
+import { registerService } from 'use-service';
 
 function countService(notify) {
   this.count = 0;
@@ -33,7 +33,7 @@ function countService(notify) {
   };
   return this;
 }
-useService.add('countService', countService);
+registerService('countService', countService);
 ```
 
 ```javascript
