@@ -1,7 +1,7 @@
 {
   "name": "use-service",
   "description": "`useService` react hook. Share a state and an API with multiple components",
-  "version": "0.2.0",
+  "version": "0.3.0-0",
   "main": "lib/useService.js",
   "publishConfig": {
     "access": "public"
@@ -34,9 +34,9 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
-    "react": "16.8.1",
-    "react-dom": "16.8.1",
-    "react-scripts": "2.1.3",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-scripts": "^2.1.8",
     "react-test-renderer": "^16.8.1"
   },
   "dependencies": {}

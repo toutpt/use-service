@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import { registerService, useService } from './useService';
 
-function countService(notify) {
+// services/log.js
+function $log() {
+  this.info = (...args) => console.info(...args);
+}
+$log.$id = '$log';
+
+// services/count.js
+function $count(notify, $log) {
   this.count = 0;
-  console.log('create service#countService should be called only once');
+  $log.info('create service#$count should be called only once');
   this.increment = () => {
     this.count += 1;
     notify();
@@ -14,35 +21,43 @@ function countService(notify) {
   };
   return this;
 }
+$count.$id = 'count';
+$count.dependencies = ['$log'];
 
-registerService('countService', countService);
 
+// index.js
+registerService('$log', $log);
+registerService('$count', $count);
+
+// components/Counter
 function Counter(props) {
-  const countService = useService('countService');
+  const $count = useService('$count');
   console.log('Counter.render()', props.id);
   
   return (
-      <p id={props.id}>Count state value({props.id}): {countService.count}</p>
+      <p id={props.id}>Count state value({props.id}): {$count.count}</p>
   );
 }
 
+// components/CountController
 function CountController(props) {
-  const countService = useService('countService');
+  const $count = useService('$count');
   console.log('CountController.render()');
   
   return (
     <div>
-      <button onClick={() => countService.increment()}>
+      <button onClick={() => $count.increment()}>
         +
       </button>
-      <button onClick={() => countService.decrement()}>
+      <button onClick={() => $count.decrement()}>
         -
       </button>
     </div>
   );
 }
 
-function App(props) {
+// App.js
+function App() {
   console.log('App.render');
   const [show, setShow] = useState(true);
   return (
