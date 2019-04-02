@@ -8,7 +8,7 @@ function initService(id) {
   let instance = services.get(id);
   if (!instance) {
     const notify = () => {
-      notifies.get(id).forEach(callMe => callMe(Object.assign({}, services.get(id))));
+      (notifies.get(id) || []).forEach(callMe => callMe(Object.assign({}, services.get(id))));
     };
     // this will call every setState to update each components
     const factory = factories.get(id);
@@ -63,7 +63,6 @@ export function registerService(idOrFn, value) {
       dependencies: fn.dependencies || [],
     });
   }
-  initService(id);
 }
 
 
