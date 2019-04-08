@@ -26,15 +26,21 @@ Then you can follow the example at https://github.com/toutpt/use-service/tree/ma
 you have two options:
 
 ```javascript
+// foo.js
 function $foo() {}
+
+// app.js
 registerService('$foo', $foo);
 ```
 
 or
 
 ```javascript
+// foo.js
 function $foo() {}
 $foo.id = '$foo';
+
+// app.js
 registerService($foo);
 ```
 
