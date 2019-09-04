@@ -17,7 +17,7 @@
     "react-hooks"
   ],
   "scripts": {
-    "prepublishOnly": "babel -d lib ./src/useService.js",
+    "prepublishOnly": "babel -d lib ./src",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
