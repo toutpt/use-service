@@ -3,6 +3,7 @@
   "description": "`useService` react hook. Share a state and an API with multiple components",
   "version": "0.3.0",
   "main": "lib/useService.js",
+  "types": "index.d.ts",
   "publishConfig": {
     "access": "public"
   },
