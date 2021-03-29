@@ -32,7 +32,7 @@ export function useService(id, options = { subscribe: true }) {
         notifies.get(id).delete(setState);
       }
     };
-  }, []);
+  }, [id]);
   if (options.subscribe) {
     if (notifies.get(id) === undefined) {
       notifies.set(id, new Set([setState]));
