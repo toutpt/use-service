@@ -3,7 +3,7 @@
   "description": "`useService` react hook. Share a state and an API with multiple components",
   "version": "0.3.2",
   "main": "lib/useService.js",
-  "homepage": "https://toutpt.github.io/use-service/index.html",
+  "homepage": "https://toutpt.github.io/use-service",
   "types": "index.d.ts",
   "publishConfig": {
     "access": "public"
