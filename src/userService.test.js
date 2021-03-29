@@ -1,7 +1,8 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { act } from 'react-dom/test-utils';
 import { useService, registerService } from './useService';
+
+const { act } = TestRenderer;
 
 describe('useService.register', () => {
     it('should update component state', () => {
