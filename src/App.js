@@ -46,10 +46,10 @@ function CountController(props) {
   
   return (
     <div>
-      <button onClick={() => $count.increment()}>
+      <button className="btn btn-secondary" onClick={() => $count.increment()}>
         +
       </button>
-      <button onClick={() => $count.decrement()}>
+      <button className="btn btn-secondary" onClick={() => $count.decrement()}>
         -
       </button>
     </div>
@@ -68,7 +68,7 @@ function App() {
       {show && (
         <Counter id="second" />
       )}
-      <button onClick={() => setShow(!show)}>
+      <button className="btn btn-primary" onClick={() => setShow(!show)}>
         Toggle second Counter instance
       </button>
     </div>
