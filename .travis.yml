@@ -4,3 +4,12 @@ notifications:
 language: node_js
 node_js:
   - 14
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: yarn deploy
+  on:
+    branch: main
+env:
+  global:
+    secure: rwW90IoegzjJ3SDXWhHChsr/rC+5fFyT8wOiVZTTDU+YvSdH5+Qj5L+/DswBUsFig76J9ixBfseh3W2fEZl1QRc9zCzIv7QgI0FOZTykcBlZ3gWeuUy7SyuPHR3oxHMI+5UdfAB9Dylk/kuWh6tDhxl8SmR0J6tmxniL2Bvv4lXCI0tG5YBaDNXFfxr8WsVmT3Z9DCwQEqENmzH4oWdZUwW7rR43kh6zWRTXeSJ8sluc1V/7dD83hxbpC59szpj06JXFOTqEIgGpfi0+yJfNrVzIuHZkjBIAom1B88o6rF4fULsXgl3CrzldmPX2BMM2kopVBJtdpqxeHNnHKmjvIWixjntCJeM3ZZ63Q29xsZjjC/BrOlUtpe2bcYMvy49H2GVq0h9S8CyCysm2SHKytpFGbUMDd2jjMEAUwyQ36UtJa7gie1YC51wWNT92vFLHSxDEm2cXdXeXRFPaHhptzSo05oHCeFD8uN4eDg+PtWUEi+s+BaJRiV2rxOWmcvcA72fWjY63YMGp69NqWnMU3HyMJWIy8/bMJQMgbmlr60rhuocVoIdQyGs4CjfKWCy+MC0x5TlsUE2lV+selC5bKoub/r+S/EOXxsH3IPaUV9b9AghcytJ6hZajyNMJRUdyJZYV3ACIAoyIqeyR94pCV8ZXn/wQ6Zr9xaWQtfUNTVU=
