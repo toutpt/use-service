@@ -73,3 +73,14 @@ export function registerService(idOrFn, value) {
 export function getService(id) {
   return services.get(id);
 }
+
+export function useFactory(id) {
+  const factory = factories.get(id);
+  const [, setState] = useState();
+  const apply = () => {
+    setState({}); // just force re render
+  };
+  // dont know if we should init deps with initService
+  const [service] = useState(new factory.fn(apply, ...factory.dependencies.map(initService)));
+  return service;
+}
